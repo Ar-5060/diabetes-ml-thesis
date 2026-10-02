@@ -25,3 +25,12 @@
 - Visualization
 - Feature importance analysis
 - Model deployment
+## V1 Stop
+✔ Dataset loading
+✔ Data exploration
+✔ Preprocessing
+✔ Train-test split
+✔ Scaling
+✔ Logistic Regression
+✔ Random Forest
+✔ Hyperparameter tuning
