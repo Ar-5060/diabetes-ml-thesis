@@ -69,28 +69,57 @@ explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X_test)
 
 
-# Check SHAP shape
+# Check SHAP output
 print("SHAP type:", type(shap_values))
 print("SHAP shape:", np.array(shap_values).shape)
 
 
-# Select class 1 (Diabetes)
+# Select diabetes class (Class 1)
 shap_values_class1 = shap_values[:, :, 1]
 
 
 print("SHAP analysis completed")
 
 
+# =========================
 # SHAP Summary Plot
-shap.summary_plot(
-    shap_values_class1,
-    X_test
-)
+# =========================
 
-
-# SHAP Feature Importance Bar Plot
 shap.summary_plot(
     shap_values_class1,
     X_test,
-    plot_type="bar"
+    show=False
 )
+
+plt.tight_layout()
+
+plt.savefig(
+    "results/SHAP_summary.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.show()
+
+
+
+# =========================
+# SHAP Feature Importance
+# =========================
+
+shap.summary_plot(
+    shap_values_class1,
+    X_test,
+    plot_type="bar",
+    show=False
+)
+
+plt.tight_layout()
+
+plt.savefig(
+    "results/SHAP_feature_importance.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+plt.show()
